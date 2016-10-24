@@ -1,0 +1,142 @@
+.clear {
+	clear: both;
+	width: 0;
+	height: 0;
+	padding: 0;
+	margin: 0;
+}
+.pSpace {
+	text-indent: 2em;
+}
+.signInBtnWrap {
+	width: 100%;
+	padding: 0 5%;
+	font-family: '微软雅黑';
+	height: 100px;
+	margin-top: 50px;
+
+	.signInBtnBox {
+		width: 43%;
+		height: 80px;
+		border: 1px solid rgb(212,212,212);
+		border-radius: 5px;
+		float: left;
+	}
+	.signInBtnLeft {
+		margin-right: 4%;
+	}
+	.signInBtn {
+		width: 100%;
+		height: 80px;
+		text-align: center;
+		line-height: 80px;
+		font-size: 35px;
+		color: white;
+		cursor: pointer;
+	}
+	.signInInfo {
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+
+		span {
+			color: rgb(30,171,227);
+		}
+	}
+	.signBtnIn {
+		background-color: #2ecc71;
+	}
+	.signBtnOff {
+		background-color: #e74c3c;
+	}
+}
+.signInContentWrap {
+	width: 100%;
+	padding: 20px 5%;
+	padding-bottom: 0;
+	box-sizing: border-box;
+	line-height: 2;
+
+	p {
+		font-size: 2vh;
+
+		&:nth-child(4) {
+			text-align : right;
+			color: rgb(125,125,122);
+		}
+	}
+}
+.signInStatusWrap {
+	padding: 20px 5%;
+	padding-bottom: 0;
+	font-family: '微软雅黑';
+
+	.signInStatusTitle {
+
+		.signInStatusInner {
+			float: left;
+			color: rgb(30,171,227);
+			width: 14%;
+			text-align: center; 
+		}
+	}
+	.signInStatusContent {
+
+		.signInStatusContentBox {
+			float: left;
+			width: 14%;
+			text-align: center; 
+			padding: 5px;
+			/*height: 50px;*/
+			box-sizing: border-box;
+
+			.signInStatusContentBoxInner {
+				border: 3px solid rgb(245,245,245);
+				width: 100%;
+				height: 100%;
+				box-sizing: border-box;
+				border-radius: 3px;
+			}
+		}
+	}
+	.signInStatusBottom {
+		width: 100%;
+		/*padding: 20px 5%;*/
+		box-sizing: border-box;
+		min-height: 50px;
+		margin-top: 20px;
+
+		.signInStatusBottomContent {
+
+			/*width: 25%;*/
+			width: 33.3%;
+			/*width: 140px;*/
+			float: left;
+			/*padding: 0 3%;*/
+			box-sizing: border-box;
+			height: 20px;
+			margin: 5px 0;
+
+			display: flex;
+		    align-items: center;
+		    text-align: justify;
+		    /*justify-content: center;*/
+
+
+			.signInStatusBottomContentColor {
+				border: 3px solid black;
+				box-sizing: border-box;
+				border-radius: 3px;
+				float: left;
+				margin: 0 20px;
+			}
+			.signInStatusBottomContentType {
+				float: left;
+				font-size: 1.5vh;
+				margin-right: 20px;
+				/*line-height: 30px!important;*/
+				/*height: 30px;*/
+			}
+		}
+	}	
+}

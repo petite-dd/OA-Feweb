@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=0.8, user-scalable=0" name="viewport">
+	<link rel="stylesheet" type="text/css" href="./css/signIn.css">
+	<script src="./deps/jquery.min.js"></script>
+	<script src="./js/init.js"></script>
+	<script src="./js/signIn.js"></script>
+</head>
+<body>
+	<div class="grey_whole"></div>
+	<div class="box_father">
+		<div class="box">
+			<div class="box_top">
+				<div class="box_title">今日签到</div>
+			</div>
+			<div class="box_bottom">
+				<div class="signInBtnWrap">
+					<div class="signInBtnLeft signInBtnBox">
+						<div class="signInBtn signBtnIn">
+							签到
+						</div>
+						<!-- <div class="signInInfo">
+							迟到倒计时：<span>2：01</span>
+						</div> -->
+					</div>
+					<div class="signInBtnRight signInBtnBox">
+						<div class="signInBtn signBtnOff">
+							签退
+						</div>
+					</div>
+				</div>
+				<div class="signInContentWrap">
+					<p>
+						说明：
+					</p>
+					<p class="pSpace">
+						签到时间为每天7：00~9：30，9：00以前为正常签到9：00~9：30为晚到时间，八点半以后签退系统判定为正常签到非晚到。9：30以后点击签到后请找主管说明理由，否则系统判定为缺勤。（系统判定周末加班可以抵消缺勤）。
+					</p>
+					<p class="pSpace">
+						每月底将给予全勤人员全勤奖，缺勤次数最多的将被罚款。
+					</p>
+					<p>
+						2016-8-7  董事会
+					</p>
+
+				</div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="box_top">
+				<div class="box_title">本月签到情况</div>
+			</div>
+			<div class="box_bottom">
+				<div class="signInStatusWrap">
+					<div class="signInStatusTitle">
+						<div class="signInStatusInner">SU</div>
+						<div class="signInStatusInner">MO</div>
+						<div class="signInStatusInner">TU</div>
+						<div class="signInStatusInner">WE</div>
+						<div class="signInStatusInner">TH</div>
+						<div class="signInStatusInner">FR</div>
+						<div class="signInStatusInner">SA</div>
+						<div class="clear"></div>
+					</div>
+					<div class="signInStatusContent">
+						<div class="clear">
+							
+						</div>
+						<!-- <div class="signInStatusContentBox"><div class="signInStatusContentBoxInner"></div></div> -->
+					</div>
+					<div class="signInStatusBottom">
+						<div class="signInStatusBottomContent">
+							<div class="signInStatusBottomContentColor">
+								
+							</div>
+							<div class="signInStatusBottomContentType">
+								正常签到
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="signInStatusBottomContent">
+							<div class="signInStatusBottomContentColor">
+								
+							</div>
+							<div class="signInStatusBottomContentType">
+								缺勤
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="signInStatusBottomContent">
+							<div class="signInStatusBottomContentColor">
+								
+							</div>
+							<div class="signInStatusBottomContentType">
+								全天假
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="signInStatusBottomContent">
+							<div class="signInStatusBottomContentColor">
+								
+							</div>
+							<div class="signInStatusBottomContentType">
+								半天假
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="signInStatusBottomContent">
+							<div class="signInStatusBottomContentColor">
+								
+							</div>
+							<div class="signInStatusBottomContentType">
+								出差
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<style type="text/css">
+/*通用窗口*/
+@media screen and (max-width: 1000px){
+	.box{width: 95%!important;
+	margin-left: 2.5% !important;
+	}
+	.box_father{margin: 2.5% !important;
+	}
+	.box_left_line{
+		margin-right: 20px!important;
+	}
+	.box_right_line{
+		margin-left: 20px!important;
+	}
+	#yhk{width: 100%!important;}
+}
+@media screen and (max-width: 300px){
+	.grey_whole{
+		width: 100%!important;
+		background-color: rgba(248,248,248,0.3);
+	}
+}
+body{font-family: '微软雅黑';}
+.box_father{margin: 10px 30px 0px 30px;}
+.box{
+	/*width: 445px;*/
+	width: 48%;
+	min-height: 125px;
+	background-color: white;
+	float: left;
+	background-color: white;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	box-sizing:border-box;
+	/*margin: 10px;*/
+	margin: 1%;
+	font-weight: bolder;
+	overflow: hidden;
+}
+.box_2{width: 445px;
+	min-height: 125px;
+	background-color: white;
+	float: left;
+	background-color: white;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	box-sizing:border-box;
+	margin: 10px;
+	font-weight: bolder;
+	overflow: hidden;
+}
+.box_top{width: 100%;
+	height: 30px;
+	border-bottom: 1px solid lightgrey;
+	position: relative;
+	box-sizing:border-box;
+	line-height: 30px;
+}
+#yhk{width: 100%!important;}
+.box_title{font-size: 14px;
+	float: left;
+	margin: 0px 0px 0px 12px;
+}
+.box_bottom{
+	margin-top: 30px;
+	position: relative;
+	bottom: 15px;
+}
+
+.grey_whole{width: 0%;
+	height: 100%;
+	position: absolute;
+	background-color: rgba(248,248,248,0.8);
+	z-index: 13;
+}
+</style>
+</html>
