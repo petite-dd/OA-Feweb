@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=0.8, user-scalable=0" name="viewport">
+	<title></title>
+</head>
+<body>
+	<div class="grey_whole"></div>
+	<div class="box_father">
+		<div class="box">
+			<div class="box_top">
+				<div class="box_title">基本信息</div>
+				<div class="change_ico" id="change_1"></div>
+				<div class="save_ico" id="save_1"></div>
+			</div>
+			<div class="box_bottom">
+				<div class="box_left_5">
+					<div>名字</div>
+					<div>性别</div>
+					<div>手机</div>
+					<div>QQ</div>
+					<div>微信</div>
+					<div>邮箱</div>
+					<div>生日</div>
+					<div>出生地</div>
+					<div>teambeation</div>
+					<div>入职时间</div>
+					<div>职务</div>
+					<div>身份</div>
+				</div>
+				<div class="box_right_5" id="input_1">
+					<div><span class="span_1">王一帆</span><input class="input_1 input" type="text"></div>
+					<div><span class="span_1">男</span><input class="input_1 input" type="text"></div>
+					<div><span class="span_1">18685356570</span><input class="input_1 input" type="text"></div>
+					<div><span class="span_1">550444405</span><input class="input_1 input" type="text"></div>
+					<div><span class="span_1">petite-dd</span><input class="input_1 input" type="text"></div>
+					<div><span class="span_1">dd@ning</span><input class="input_1 input" type="text"></div>
+					<div><span class="span_1">1993-10-09</span><input class="input_1 input" type="text"></div>
+					<div><span class="span_1">贵州安顺</span><input class="input_1 input" type="text"></div>
+					<div><span class="span_1">550444405@qq.com</span><input class="input_1 input" type="text"></div>
+					<div><span class="span_1">2016-6-7</span><input class="input_1 input" type="text"></div>
+					<div><span class="span_1">CEO</span><input class="input_1 input" type="text"></div>
+					<div><span class="span_1">股东</span><input class="input_1 input" type="text"></div>
+				</div>
+			</div>
+		</div>
+		<div class="box bordernone" id="second_box">
+			<div class="box box_marginnone" id="header_pic">
+				<div class="box_top">
+					<div class="box_title">头像</div>
+					<div class="change_ico"></div>
+				</div>
+				<div class="box_bottom">
+					<div id="people_pic"></div>
+				</div>
+			</div>
+			<div class="box_2 box_marginnone" id="zym">
+				<div class="box_top">
+					<div class="box_title">座右铭</div>
+					<div class="change_ico" id="change_3"></div>
+					<div class="save_ico" id="save_3"></div>
+				</div>
+				<div class="box_bottom">
+					<div id="zym_wz"><span class="span_3">人生没有偶然，每件事都有它的意义</span><input type="text" class="input input_3"></div>
+				</div>
+			</div>
+
+			<div class="box box_marginnone" id="yhk">
+				<div class="box_top">
+					<div class="box_title">银行卡信息(不公开)</div>
+					<div class="change_ico" id="change_2"></div>
+					<div class="save_ico" id="save_2"></div>
+				</div>
+				<div class="box_bottom">
+					<div class="box_left_4">
+						<div>开户行</div>
+						<div>银行卡号</div>
+						<div>开户人姓名</div>
+						<div>支付宝</div>
+					</div>
+					<div class="box_right_6">
+						<div><span class="span_2">中国工商银行塔山路支行</span><input class="input_2 input" type="text"></div>
+						<div><span class="span_2">6212262404001343245</span><input class="input_2 input" type="text"></div>
+						<div><span class="span_2">王一帆</span><input class="input_2 input" type="text"></div>
+						<div><span class="span_2">18685356570</span><input class="input_2 input" type="text"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- 		<div class="box">
+			<div class="box_top">
+				<div class="box_title">示例</div>
+				<div class="change_ico"></div>
+			</div>
+			<div class="box_bottom">
+				<div class="box_left_3">
+					<div>1</div>
+				</div>
+				<div class="box_right_7">
+					<div>1</div>
+				</div>
+			</div>
+		</div> -->
+	</div>
+</body>
+<style type="text/css">
+/*通用窗口*/
+@media screen and (max-width: 1000px){
+	.box{width: 95%!important;
+	margin-left: 2.5% !important;
+	}
+	.box_father{margin: 2.5% !important;
+	}
+	.box_left_line{
+		margin-right: 20px!important;
+	}
+	.box_right_line{
+		margin-left: 20px!important;
+	}
+	#yhk{width: 100%!important;}
+	.change_ico{display: none;}
+}
+@media screen and (max-width: 300px){
+	.grey_whole{
+		width: 100%!important;
+		background-color: rgba(248,248,248,0.3);
+	}
+}
+body{font-family: '微软雅黑';}
+.box_father{margin: 10px 30px 0px 30px;}
+.box{
+	/*width: 445px;*/
+	width: 48%;
+	min-height: 125px;
+	background-color: white;
+	float: left;
+	background-color: white;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	box-sizing:border-box;
+	/*margin: 10px;*/
+	margin: 1%;
+	font-weight: bolder;
+	overflow: hidden;
+}
+.box_2{width: 445px;
+	min-height: 125px;
+	background-color: white;
+	float: left;
+	background-color: white;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	box-sizing:border-box;
+	margin: 10px;
+	font-weight: bolder;
+	overflow: hidden;
+}
+.box_top{width: 100%;
+	height: 30px;
+	border-bottom: 1px solid lightgrey;
+	position: relative;
+	box-sizing:border-box;
+}
+#yhk{width: 100%!important;}
+.box_title{font-size: 14px;
+	float: left;
+	margin: 8px 0px 0px 12px;
+	line-height: 14px;
+}
+.change_ico{width: 22px;
+	height: 22px;
+	background-image: url(images/change_ico.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: absolute;
+	right: 10px;
+	top: 4px;
+	cursor: pointer;
+}
+.save_ico{width: 22px;
+	height: 22px;
+	background-image: url(images/save_ico.png);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: absolute;
+	right: 10px;
+	top: 4px;
+	cursor: pointer;
+	/*background-color: red;*/
+	display: none;
+}
+.box_bottom{
+	margin-top: 30px;
+	position: relative;
+	bottom: 15px;
+}
+.box_left_5{width: 50%;
+	float: left;
+	box-sizing:border-box;
+	border-right: 1px lightgrey solid;
+}
+.box_right_5{width: 50%;
+	float: right;
+}
+.box_left_3{width: 30%;
+	float: left;
+	box-sizing:border-box;
+	border-right: 1px lightgrey solid;
+}
+.box_right_3{width: 30%;
+	float: right;
+}
+.box_left_4{width: 40%;
+	float: left;
+	box-sizing:border-box;
+	border-right: 1px lightgrey solid;
+}
+.box_right_4{width: 40%;
+	float: right;
+}
+.box_left_6{width: 60%;
+	float: left;
+	box-sizing:border-box;
+	border-right: 1px lightgrey solid;
+}
+.box_right_6{width: 60%;
+	float: right;
+}
+.box_left_7{width: 70%;
+	float: left;
+	box-sizing:border-box;
+	border-right: 1px lightgrey solid;
+}
+.box_right_7{width: 70%;
+	float: right;
+}
+.box_left_3 div,.box_left_4 div,.box_left_5 div,.box_left_6 div,.box_left_7 div{
+	text-align: right;
+	margin-right: 40px;
+	line-height: 25px;
+	font-size: 2vh;
+	overflow: hidden;
+}
+.box_right_3 div,.box_right_4 div,.box_right_5 div,.box_right_6 div,.box_right_7 div{
+	text-align: left;
+	margin-left: 40px;
+	line-height: 25px;
+	font-size: 2vh;
+	overflow: hidden;
+}
+.box_marginnone{margin: 0!important;
+}
+.bordernone{border:none!important;}
+.grey_whole{width: 0%;
+	height: 100%;
+	position: absolute;
+	background-color: rgba(248,248,248,0.8);
+	z-index: 13;
+}
+.input{display: none;
+	margin-bottom: 4px;
+	width: 80%;
+	text-align: center;
+}
+
+
+
+.input_3{width: 99%!important;}
+#header_pic{width: 140px!important;
+	margin-top: 10px!important;
+	position: relative;
+	bottom: 10px;
+}
+#people_pic{width: 116px;
+	height: 116px;
+	border: 1px solid lightgrey;
+	margin:10px;
+	border-radius: 5px;
+	background-image: url(images/OA_tx.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+#zym{float: right;
+	height: 190px;
+}
+#zym_wz{margin: 10px;
+	position: relative;
+	top: 30px;
+	line-height: 1.5;
+}
+#second_box{background-color: transparent!important;}
+</style>
+<script type="text/javascript">
+// setTimeout(function () {
+	zym.style.width = second_box.clientWidth - 160 + "px";
+// },1)
+window.onresize = function () {
+	zym.style.width = second_box.clientWidth - 150 + "px";
+}
+
+
+
+	
+change_1.onclick = function () {
+	TextChangeInput("change_1","save_1","span_1","input_1");
+}
+change_2.onclick = function () {
+	TextChangeInput("change_2","save_2","span_2","input_2");
+}
+change_3.onclick = function () {
+	TextChangeInput("change_3","save_3","span_3","input_3");
+}
+
+
+function TextChangeInput (Change_icoId,Save_icoId,TextClass,InputClass) {
+	var InputClass_1 = document.getElementsByClassName(InputClass);
+	var TextClass_1 = document.getElementsByClassName(TextClass);
+		for (var i = 0; i < TextClass_1.length; i++) {
+			TextClass_1[i].style.display = "none";
+			InputClass_1[i].value = TextClass_1[i].innerText;
+			InputClass_1[i].style.display = "block";
+		};
+	document.getElementById(Change_icoId).style.display = "none";
+	document.getElementById(Save_icoId).style.display = "block";
+}
+
+</script>
+</html>

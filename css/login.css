@@ -1,0 +1,158 @@
+body{margin:0;
+	font-family: '微软雅黑';
+	height: 100%;
+	background-color: #f1f1f1;
+}
+#body{width: 470px;
+	/*height: 100vh;*/
+	display: block;
+	/*width: 450px;*/
+	margin:0 auto;
+	overflow: hidden;
+	text-align: center;
+}
+#loginbox{width: 430px;
+	height: 210px;
+	border: 2px solid #28ace3;
+	background-color: white;
+	position: absolute;
+	z-index: 9;
+	/*top: -105px;*/
+	left: 50%;
+	margin-left: -215px;
+	top: 50%;
+	margin-top: -105px;
+	border-radius: 5px;
+	transition:0.1s;
+}
+#rob{width: 304px;
+	height: 216px;
+	background-image: url(../images/OA_rob.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;	
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transition:0.8s;
+	transition-timing-function:ease-out;
+	margin-left: -152px;
+	/*margin-top: -108px;居中*/
+	/*margin-top: -320px;*/
+	/*最高点*/
+	margin-top: -170px;
+	/*第一步*/
+}
+#red{width: 282px;
+	height: 100px;
+	background-color: #da5554;	
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;	
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -141px;
+	margin-top: -105px;
+	/*margin-top: -320px;*/
+	/*最高点*/
+	/*margin-top:0px;*/
+	/*第一步*/
+}
+#margin_box{width: 80%;
+	margin: 0 auto;
+	margin-top: 35px;
+}
+#box_left{width: 25%;
+	height: 100%;
+	float: left;
+}
+#box_left .box{font-weight: bolder;
+	letter-spacing: 10px;
+	color: grey;
+}
+#box_right{width: 75%;
+	height: 100%;
+	float: right;
+}
+.box{width:100%;
+	height: 32px;
+	margin-bottom: 20px;
+	line-height: 2;
+}
+.bottom{width: 45%;
+	height: 100%;
+	background-color: #28ace3;
+	border-radius: 5px;
+	color: white;
+	text-align: center;
+	line-height: 2;
+	cursor: pointer;
+	/*border: 2px solid #28ace3;*/
+}
+.bottom:hover{background-color: #50b9e4;}
+#bottom1{float: left;}
+#bottom2{float: right;}
+.input{width: 100%;
+	height: 100%;
+	border: 2px solid #28ace3;
+	border-radius: 5px;
+	box-sizing:border-box;
+	outline:none;
+}
+.hand{width: 36px;
+	height: 153px;
+	background-image: url(../images/OA_hand.png);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: absolute;
+}
+#left_hand{
+	/*left: 11px;the end*/
+	left: 70px;
+	top: 103px;
+	transform:rotate(90deg);
+/*	left: 53px;
+	top: 60px;
+	transform:rotate(45deg);	
+*/
+	transition:0.5s;
+}
+#right_hand{
+	right: 70px;
+	top: 103px;
+	transform:rotate(-90deg);
+	transition:1s;
+
+/*	right: 53px;
+	top: 60px;
+	transform:rotate(-45deg);*/
+}
+#message{width: 0;
+	height: 80px;
+	background-color: rgba(255,255,255,0.8);
+	position: absolute;
+	top: 0;
+	border: none;
+	border-radius: 5px;
+	text-align: center;
+	font-weight: bolder;
+	line-height: 5;
+	left: 0;
+	overflow: hidden;
+	transition:1s;
+}
+#footer{width: 470px;
+	height: 50px;
+	/*background-color: lightgrey;*/
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+}
+.word_first{color: #28ace3;
+	font-size: 22px;
+}
+.word_second{font-size: 14px;
+	line-height: 2;
+}

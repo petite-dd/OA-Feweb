@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="frame"></div>
+</body>
+<style type="text/css">
+	body{margin: 0;
+		font-family: "微软雅黑";
+	}
+	#frame{width: 470px;
+		height: 470px;
+		margin: 0 auto;
+		margin-top: 50px;
+		border-radius: 5px;
+		border: 1px solid lightgrey;
+		box-sizing:border-box;
+	}
+	.box{
+		/*width: 50px;*/
+		height: 25px;
+		border: 1px solid lightgrey;
+		border-radius: 5px;
+		font-size: 14px;
+		line-height: 1.9;
+		text-align: center;
+		margin: 9px;
+		float: left;
+		box-sizing:border-box;
+		position: relative;
+	}
+	.deep{width: 100%;
+		min-height: 50px;
+		/*border-bottom: 1px solid grey;*/
+		box-sizing:border-box;
+	}
+</style>
+
+<script type="text/javascript">
+var max_deep = 5;					//有多少层
+var json = 
+[
+    {
+    	"father_id":"0",
+    	"sid":"1",
+    	"name":"董事会",
+    	"deep":"1"
+    },
+    {
+    	"father_id":"1",
+    	"sid":"2",
+    	"name":"董事长",
+    	"deep":"2"
+    },
+    {
+    	"father_id":"2",
+    	"sid":"3",
+    	"name":"CEO",
+    	"deep":"3"
+    },
+    {
+    	"father_id":"3",
+    	"sid":"4",
+    	"name":"项目总监",
+    	"deep":"4"
+    },
+    {
+    	"father_id":"3",
+    	"sid":"5",
+    	"name":"技术总监",
+    	"deep":"4"
+    },
+    {
+    	"father_id":"3",
+    	"sid":"6",
+    	"name":"财务总监",
+    	"deep":"4"
+    },
+    {
+    	"father_id":"4",
+    	"sid":"7",
+    	"name":"产品",
+    	"deep":"5"
+    },
+    {
+    	"father_id":"4",
+    	"sid":"8",
+    	"name":"设计",
+    	"deep":"5"
+    },
+    {
+    	"father_id":"5",
+    	"sid":"9",
+    	"name":"Feweb",
+    	"deep":"5"
+    },
+    {
+    	"father_id":"5",
+    	"sid":"10",
+    	"name":"移动端",
+    	"deep":"5"
+    },
+    {
+    	"father_id":"5",
+    	"sid":"11",
+    	"name":"后端",
+    	"deep":"5"
+    }
+]
+
+//初始化box宽度，根据最后一层的个数
+var box_width = frame.clientWidth / max_deep - 18 +"px";
+var box_width_num = frame.clientWidth / max_deep - 18;
+function box_width_resize () {
+	var box = document.getElementsByClassName('box');
+	for (var i = 0; i < box.length; i++) {
+		box[i].style.width = box_width;
+	};
+	console.log(box_width);
+}
+for (var i = 0; i < max_deep; i++) {
+	//创建deep
+	var deep_num = i + 1;
+	var create_deep = document.createElement("div");
+		create_deep.setAttribute("class","deep");
+		create_deep.setAttribute("id","deep" + deep_num);
+		frame.appendChild(create_deep);	
+};
+
+for (var i = 0; i < json.length; i++) {
+	var box_num = i + 1
+	//创建box
+	var create_box = document.createElement("div");
+	create_box.setAttribute("class","box");
+	// create_box.setAttribute("id","box" + json[i].child_id);
+	create_box.setAttribute("id","box" + box_num);
+	create_box.appendChild(document.createTextNode(json[i].name));
+	document.getElementById('deep' + json[i].deep).appendChild(create_box);	
+	box_width_resize();
+};
+
+//计算个数
+var num = [];  //将子集个数存入数组
+for (var i = 0; i < json.length; i++) {
+	// json[i].
+	var num_0 = 0;  //计数
+	var empty = 0;
+
+	for (var a = 0; a < json.length; a++) {
+		if (json[i].sid == json[a].father_id) {
+			num_0 ++;
+			num[i] = num_0;
+			// console.log("json" + i + "=" + a);
+		} else{
+			empty++;
+			if (empty == a) {
+				num[i] = 0;
+			} else{};
+		};
+
+	};
+	console.log(num);
+};
+// for (var i = num.length - 1; i >= 0; i--) {
+// 	// console.log(i)
+// 	document.getElementById('box' + i).style.left = box_width_num * num[i] + "px";
+
+// };
+</script>
+
+</html>
