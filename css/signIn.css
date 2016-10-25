@@ -24,6 +24,7 @@
   border: 1px solid #d4d4d4;
   border-radius: 5px;
   float: left;
+  overflow: hidden;
 }
 .signInBtnWrap .signInBtnLeft {
   margin-right: 4%;
@@ -87,7 +88,7 @@
   box-sizing: border-box;
 }
 .signInStatusWrap .signInStatusContent .signInStatusContentBox .signInStatusContentBoxInner {
-  border: 3px solid whitesmoke;
+  border: 1px solid whitesmoke;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -115,7 +116,7 @@
   /*justify-content: center;*/
 }
 .signInStatusWrap .signInStatusBottom .signInStatusBottomContent .signInStatusBottomContentColor {
-  border: 3px solid black;
+  border: 1px solid black;
   box-sizing: border-box;
   border-radius: 3px;
   float: left;
