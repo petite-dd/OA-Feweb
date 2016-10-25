@@ -54,12 +54,11 @@ window.onload = function(){
 		$.ajax({
 	     	type: 'POST',
 	     	// url: initObj.test , 
-	     	url: "http://192.168.1.101/jsonp.php" , 
-	        dataType : 'jsonp',  
-	        jsonp:"jsoncallback",
+	     	url: "http://192.168.1.135:8080/home/sign" , 
 	    	data: {
-	    		user_name : '15527415200',
-	    		password : '123' 
+	    		u_id : 1,
+	    		token : '123123123',
+	    		operation : 'late'
 	    	} ,
 	    	success: function(data){
 	    		console.log(data);
