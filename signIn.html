@@ -10,8 +10,18 @@
 	<script src="./js/signIn.js"></script>
 </head>
 <body>
+	<div class="loadingMask">
+		<div class="loadingMaskTop">
+			<div class="innerLoading">
+				
+			</div>
+			<div class="loadingMaskBot">
+				正在获取可操作状态 ......
+			</div>
+		</div>
+	</div>
 	<div class="grey_whole"></div>
-	<div class="box_father">
+	<div class="box_father"  onselectstart ='return false'>
 		<div class="box">
 			<div class="box_top">
 				<div class="box_title">今日签到</div>
@@ -19,17 +29,17 @@
 			<div class="box_bottom">
 				<div class="signInBtnWrap">
 					<div class="signInBtnLeft signInBtnBox">
-						<div class="signInBtn signBtnIn">
+						<button class="signInBtn signBtnIn">
 							签到
-						</div>
+						</button>
 						<!-- <div class="signInInfo">
 							迟到倒计时：<span>2：01</span>
 						</div> -->
 					</div>
 					<div class="signInBtnRight signInBtnBox">
-						<div class="signInBtn signBtnOff">
+						<button class="signInBtn signBtnOff">
 							签退
-						</div>
+						</button>
 					</div>
 				</div>
 				<div class="signInContentWrap">
@@ -66,12 +76,25 @@
 						<div class="clear"></div>
 					</div>
 					<div class="signInStatusContent">
+						<!-- <div class="signInStatusContentBox">
+							<div class="signInStatusContentBoxInner">
+								<div class="signInStatusContentBoxState"></div>
+									<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerNormal">半</div>
+									<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerNormal">到</div>
+									<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerEmpty">旷</div>
+								
+								</div>
+								10
+							</div>
+						</div> -->
+
 						<div class="clear">
 							
 						</div>
 						<!-- <div class="signInStatusContentBox"><div class="signInStatusContentBoxInner"></div></div> -->
 					</div>
-					<div class="signInStatusBottom">
+
+					<!-- <div class="signInStatusBottom">
 						<div class="signInStatusBottomContent">
 							<div class="signInStatusBottomContentColor">
 								
@@ -113,12 +136,57 @@
 								
 							</div>
 							<div class="signInStatusBottomContentType">
-								出差
+								未签退
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="signInStatusBottomContent">
+							<div class="signInStatusBottomContentColor">
+								
+							</div>
+							<div class="signInStatusBottomContentType">
+								请假未签退
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="signInStatusBottomContent">
+							<div class="signInStatusBottomContentColor">
+								
+							</div>
+							<div class="signInStatusBottomContentType">
+								请假迟到
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="signInStatusBottomContent">
+							<div class="signInStatusBottomContentColor">
+								
+							</div>
+							<div class="signInStatusBottomContentType">
+								迟到
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="signInStatusBottomContent">
+							<div class="signInStatusBottomContentColor">
+								
+							</div>
+							<div class="signInStatusBottomContentType">
+								迟到未签退
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="signInStatusBottomContent">
+							<div class="signInStatusBottomContentColor">
+								
+							</div>
+							<div class="signInStatusBottomContentType">
+								签到未签退
 							</div>
 							<div class="clear"></div>
 						</div>
 						<div class="clear"></div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

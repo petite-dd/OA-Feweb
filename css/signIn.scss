@@ -1,3 +1,7 @@
+* {
+	margin: 0;
+	padding: 0;
+}
 .clear {
 	clear: both;
 	width: 0;
@@ -7,6 +11,48 @@
 }
 .pSpace {
 	text-indent: 2em;
+}
+.loadingMask {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	top: 0;
+	left: 0;
+	z-index: 1000;
+
+	display: flex;
+	align-items: center;
+	text-align: justify;
+	justify-content: center;
+
+	.loadingMaskTop {
+		width: 200px;
+		height: 250px;
+		position: relative;
+		/*background-color: white;*/
+
+		.innerLoading {
+			width: 100px;
+			height: 100px;
+			margin: 50px;
+			border-radius: 50%;
+			background: linear-gradient(transparent 0% , transparent 70% , #FFF 70% , #FFF 100%);
+			-webkit-animation: loading 0.6s linear 0s infinite;
+			-moz-animation: loading 0.6s linear 0s infinite;
+			-ms-animation: loading 0.6s linear 0s infinite;
+			-o-animation: loading 0.6s linear 0s infinite;
+			animation: loading 0.6s linear 0s infinite;
+
+		}
+		.loadingMaskBot {
+			width: 200px;
+			height: 50px;
+			text-align: center;
+			color: white;
+			font-family: '微软雅黑';
+		}
+	}
 }
 .signInBtnWrap {
 	width: 100%;
@@ -33,7 +79,10 @@
 		line-height: 80px;
 		font-size: 35px;
 		color: white;
-		cursor: pointer;
+		/*cursor: pointer;*/
+		border: 0;
+		font-family: '微软雅黑';
+		opacity: 0.5;
 	}
 	.signInInfo {
 		height: 40px;
@@ -90,6 +139,8 @@
 			padding: 5px;
 			/*height: 50px;*/
 			box-sizing: border-box;
+			position: relative;
+
 
 			.signInStatusContentBoxInner {
 				border: 1px solid rgb(245,245,245);
@@ -97,6 +148,44 @@
 				height: 100%;
 				box-sizing: border-box;
 				border-radius: 3px;
+				position: relative;
+
+				.signInStatusContentBoxState {
+					position: absolute;
+					height: 35%;
+					width: 100%;
+					background-color: white;
+
+					.signInStatusContentBoxStateInner {
+						/*position: relative;*/
+						/*position: relative;*/
+						/*top: -100%;*/
+						float: left;
+						/*height: 100%;*/
+						width: 33%;
+						/*font-size: 0.5vw;*/
+						font-size: 60%;
+						/*line-height: 1.5;*/
+						border: 1px solid white;
+						box-sizing: border-box;
+						color: white;
+						margin-top: 0;
+						text-align: center;
+						border-radius: 15%;
+						overflow: hidden;
+					}
+					.signInStatusContentBoxStateInnerNormal {
+						background-color: #2ecc71;
+					}
+					.signInStatusContentBoxStateInnerVocation {
+						background-color: #3498db;
+					}
+					.signInStatusContentBoxStateInnerEmpty {
+						background-color: #e74c3c;
+						/*box-sizing: border-box;*/
+						/*line-height: 1.9;*/
+					}
+				}
 			}
 		}
 	}
@@ -140,4 +229,45 @@
 			}
 		}
 	}	
+}
+
+@keyframes loading {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes loading {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes loading {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+@-o-keyframes loading {
+	from {
+		-o-transform: rotate(0deg);
+	}
+	to {
+		-o-transform: rotate(360deg);
+	}
+}
+@-ms-keyframes loading {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+	}
 }
