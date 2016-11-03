@@ -93,6 +93,8 @@ window.onload = function(){
 	    		}else if(data.code == 200){  //-----请求成功
 	    			$('.signInBtn').attr('disabled','disabled').css('opacity','0.5');
 	    			alert("操作成功");
+	    		}else if(data.code == 203){
+	    			alert('非法操作');
 	    		}
 	    	}
 		});
@@ -104,7 +106,9 @@ window.onload = function(){
 	     	// url: "http://192.168.1.135:8080/home/sign" , 
 	    	data: {
 	    		u_id : 1,
-	    		token : '123123123'	
+	    		token : '123123123'	,
+	    		month:"2016-10"
+	    		// month:"2016-10"
 	    	} ,
 	    	success: function(data){
 	    		console.log(data);
