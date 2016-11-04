@@ -240,7 +240,7 @@ var json =
                 num++;             
             };
         };
-        console.log(change);
+        // console.log(change);
         // console.log(changeBox);
         change = [];
         num = 0;
@@ -263,7 +263,7 @@ var json =
         $('.message_list').removeClass('selectPeople');
         $(this).addClass('selectPeople');
 
-        console.log($(this).index());
+        // console.log($(this).index());
         $('.selectTimeBtn').show(300);
     });
 
@@ -272,14 +272,14 @@ var json =
         searchMonth($('.innerSelectYear').val(),$('.innerSelectMonth').val());
     })
     $('.innerSelectYear,.innerSelectMonth').bind('change',function(){
-        console.log(1);
+        // console.log(1);
         $('.dateList').hide(300);
         $('#changeButtonBox').hide(300);
     })
 
     function searchMonth(year,month){
         var searchTime = year + '/' + month + '/' + '01';
-        console.log(searchTime);
+        // console.log(searchTime);
         var time = new Date(searchTime);
         createDateContent(time);
     }
@@ -313,10 +313,10 @@ var json =
         var thisMouthNewDay = new Date((date.getYear() + 1900) , (date.getMonth() + 1) , 0);
         var thisMouthDay = thisMouthNewDay.getDate();
 
-        console.log('本月第一天为 ' + firstDayThisMouth);
-        console.log('本月第一天的时间戳为 ' + firstDayThisMouthTime);
-        console.log('本月一号是星期 ' + firstDaygetDay);
-        console.log('本月共有 ' + thisMouthDay + ' 天');
+        // console.log('本月第一天为 ' + firstDayThisMouth);
+        // console.log('本月第一天的时间戳为 ' + firstDayThisMouthTime);
+        // console.log('本月一号是星期 ' + firstDaygetDay);
+        // console.log('本月共有 ' + thisMouthDay + ' 天');
 
         if((firstDaygetDay + thisMouthDay) > 35){
             createDateBox(42);
@@ -331,6 +331,7 @@ var json =
 
         // resizeDateBox();
     }
+    var allDateContent = {};
     function getOwnMonth(year,month){
         $.ajax({
             type: 'POST',
@@ -345,6 +346,8 @@ var json =
             } ,
             success: function(data){
                 console.log(data);
+
+                allDateContent = data.contents.signRecord;
 
                 if(data.code == 200){
                     if(data.contents.operable.length == 0){  //------获取按钮点击状态
@@ -376,23 +379,23 @@ var json =
                                 $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerEmpty">旷</div>');
                                 $('.signInStatusContentBoxStateInner').css({'line-height' : $('.signInStatusContentBoxState').height() - 3 + 'px'});
                             }
-                            if(signRecordState.leaveFull){          //-----全天假
-                                $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerVocation">全</div>');
-                            }
                             if(signRecordState.sign){   //-----签到
                                 $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerNormal">到</div>');
-                            }
-                            if(signRecordState.signOut){ //-----签退
-                                $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerNormal">退</div>');
                             }
                             if(signRecordState.late){   //-----迟到
                                 $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerEmpty">迟</div>');
                             }
-                            if(signRecordState.leaveHalf){  //-----半天假
-                                $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerVocation">半</div>');
+                            if(signRecordState.signOut){ //-----签退
+                                $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerNormal">退</div>');
                             }
                             if(signRecordState.notSignOut){  //-----未签退
                                 $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerEmpty">退</div>');
+                            }
+                            if(signRecordState.leaveHalf){  //-----半天假
+                                $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerVocation">半</div>');
+                            }
+                            if(signRecordState.leaveFull){   //-----全天假
+                                $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerVocation">全</div>');
                             }
                         }
                     }
@@ -412,16 +415,16 @@ var json =
 
                         var reg = /[0-9]+$/;
 
-                        console.log(str.match(reg));
+                        // console.log(str.match(reg));
+                        var thisIndex = str.match(reg);
 
-                        $('.changeDateNum').html(str.match(reg));
+                        $('.changeDateNum').html(thisIndex);
 
                         $('.innerDate').removeClass('changeDateActive');
                         $(this).addClass('changeDateActive');
 
                         $('#changeButtonBox').show(300);
 
-                        console.log(signRecordState);
                     })
                 }
             }
