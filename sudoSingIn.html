@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html onselectstart ='return false'>
 <head>
 	<meta charset = "utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=0.8, user-scalable=0;" name="viewport">
 	<link rel="stylesheet" type="text/css" href="css/depBox.css">
+	<link rel="stylesheet" type="text/css" href="css/signIn.css">
 	<link rel="stylesheet" type="text/css" href="css/sudoSignIn.css">
+	<script src="./deps/jquery.min.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
 	<script type="text/javascript" src="js/sudoSignIn.js"></script>
 	<title></title>
 </head>
-<body>
+<body onselectstart ='return false'>
 	<div class="grey_whole"></div>
-	<div class="box_father">
+	<div class="box_father" onselectstart ='return false'>
 		<div class="box">
 			<div class="box_top">
 				<div class="box_title">公司成员</div>
@@ -33,10 +36,82 @@
 					<div class="box_title">签到情况</div>
 					<div class="change_ico"><span>修改</span></div>
 				</div>
+				<div class="selectMonthWrap">
+					<div class="selectYear selectMonthBtn">
+						<select class="innerSelectYear">
+							<option value="2000">2000</option>
+							<option value="2001">2001</option>
+							<option value="2002">2002</option>
+							<option value="2003">2003</option>
+							<option value="2004">2004</option>
+							<option value="2005">2005</option>
+							<option value="2006">2006</option>
+							<option value="2007">2007</option>
+							<option value="2008">2008</option>
+							<option value="2009">2009</option>
+							<option value="2010">2010</option>
+							<option value="2011">2011</option>
+							<option value="2012">2012</option>
+							<option value="2013">2013</option>
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
+							<option value="2021">2021</option>
+							<option value="2022">2022</option>
+							<option value="2023">2023</option>
+							<option value="2024">2024</option>
+							<option value="2025">2025</option>
+						</select>
+					</div>
+					<div class="selectMonth selectMonthBtn">
+						<select class="innerSelectMonth">
+							<option value="1">一月</option>
+							<option value="2">二月</option>
+							<option value="3">三月</option>
+							<option value="4">四月</option>
+							<option value="5">五月</option>
+							<option value="6">六月</option>
+							<option value="7">七月</option>
+							<option value="8">八月</option>
+							<option value="9">九月</option>
+							<option value="10">十月</option>
+							<option value="11">十一月</option>
+							<option value="12">十二月</option>
+						</select>
+					</div>
+					<div class="selectTimeBtn">
+						查询
+					</div>
+				</div>
+				<div class="box_bottom dateList">
+					<div class="signInStatusWrap">
+						<div class="signInStatusTitle">
+							<div class="signInStatusInner">SU</div>
+							<div class="signInStatusInner">MO</div>
+							<div class="signInStatusInner">TU</div>
+							<div class="signInStatusInner">WE</div>
+							<div class="signInStatusInner">TH</div>
+							<div class="signInStatusInner">FR</div>
+							<div class="signInStatusInner">SA</div>
+							<div class="clear"></div>
+						</div>
+						<div class="signInStatusContent">
+
+							<div class="clear">
+								
+							</div>
+						</div>
+
+					</div>
+				</div>
 				<div class="box_bottom">
 					<div id="changeButtonBox">
 						<div id="changeButtonBoxTop">
- 							将16号的状态修改为：
+ 							将<span class="changeDateNum"></span>号的状态修改为：
  						</div>
  						<div id="changeButton">
  							<div class="changeButton">签到</div>

@@ -106,8 +106,7 @@ window.onload = function(){
 	     	// url: "http://192.168.1.135:8080/home/sign" , 
 	    	data: {
 	    		u_id : 1,
-	    		token : '123123123'	,
-	    		month:"2016-10"
+	    		token : '123123123'	
 	    		// month:"2016-10"
 	    	} ,
 	    	success: function(data){
@@ -131,15 +130,18 @@ window.onload = function(){
 	    			for(var i = 0 ; i < data.contents.signRecord.length - 1 ; i ++){
 	    				if(data.contents.signRecord[i].state == null){
 	    					// $('.innerDate').eq(i).css({'background-color' : 'rgb(123,14,35)'});
-	    					$('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerEmpty">旷</div>');
-							$('.signInStatusContentBoxStateInner').css({'line-height' : $('.signInStatusContentBoxState').height() - 3 + 'px'});
+	    		// 			$('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerEmpty">旷</div>');
+							// $('.signInStatusContentBoxStateInner').css({'line-height' : $('.signInStatusContentBoxState').height() - 3 + 'px'});
 	    				}else{
 	    					var signRecordState = new Object();
 	    					for(var n = 0 ; n < data.contents.signRecord[i].state.length ; n ++){
 	    						signRecordState[data.contents.signRecord[i].state[n]] = 1;
 	    					}
 	    					// console.log(signRecordState);
-
+	    					if(signRecordState.absenteeism){
+		    					$('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerEmpty">旷</div>');
+								$('.signInStatusContentBoxStateInner').css({'line-height' : $('.signInStatusContentBoxState').height() - 3 + 'px'});
+	    					}
 	    					if(signRecordState.leaveFull){			//-----全天假
 	    						$('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerVocation">全</div>');
 	    					}
