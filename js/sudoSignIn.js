@@ -2,7 +2,7 @@ window.onload = function  (argument) {
 
 var num = 0;
 var change = []; //最终结果
-var changeBox = ["签到","迟到","半天假","全天假","签退"];
+var changeBox = ["签到","迟到","半天假","全天假","签退","矿工"];
 var json1 = 
 [
     {
@@ -185,11 +185,28 @@ var json =
             changeButton[1].setAttribute("status","unclick");
             changeButton[2].setAttribute("status","unclick");
             changeButton[4].setAttribute("status","unclick");
+            changeButton[5].setAttribute("status","unclick");
         };
         if (self == changeButton[3] && changeButton[3].getAttribute("status") == "click") {
             changeButton[0].setAttribute("status","click");
             changeButton[1].setAttribute("status","click");
             changeButton[2].setAttribute("status","click");
+            changeButton[4].setAttribute("status","unclick");
+            changeButton[5].setAttribute("status","click");
+        };
+        if (self == changeButton[5] && changeButton[5].getAttribute("status") == "down") {
+            // alert("5");
+            changeButton[0].setAttribute("status","unclick");
+            changeButton[1].setAttribute("status","unclick");
+            changeButton[2].setAttribute("status","unclick");
+            changeButton[3].setAttribute("status","unclick");
+            changeButton[4].setAttribute("status","unclick");
+        };
+        if (self == changeButton[5] && changeButton[5].getAttribute("status") == "click") {
+            changeButton[0].setAttribute("status","click");
+            changeButton[1].setAttribute("status","click");
+            changeButton[2].setAttribute("status","click");
+            changeButton[3].setAttribute("status","click");
             changeButton[4].setAttribute("status","unclick");
         };
         // if ((self == changeButton[0] && changeButton[0].getAttribute("status") == "down") && (self == changeButton[1] && changeButton[1].getAttribute("status") == "down") || (self == changeButton[2] && changeButton[2].getAttribute("status") == "down") ) {
