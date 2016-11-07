@@ -1,5 +1,5 @@
 function init () {
-    alert("ok");
+    // alert("ok");
     changeButton[3].click();    
     changeButton[3].click();    
 }
