@@ -1,3 +1,8 @@
+function init () {
+    alert("ok");
+    changeButton[3].click();    
+    changeButton[3].click();    
+}
 window.onload = function  (argument) {
 
 var num = 0;
