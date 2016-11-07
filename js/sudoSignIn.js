@@ -2,7 +2,10 @@ window.onload = function  (argument) {
 
 var num = 0;
 var change = []; //最终结果
-var changeBox = ["签到","迟到","半天假","全天假","签退","矿工"];
+var fanelState = [];
+var changeDate = '';
+// var changeBox = ["签到","迟到","半天假","全天假","签退","旷工"];
+var changeBox = ["sign","late","leaveHalf","leaveFull","signOut","absenteeism"];
 var json1 = 
 [
     {
@@ -257,7 +260,8 @@ var json =
                 num++;             
             };
         };
-        // console.log(change);
+        console.log(change);
+        fanelState = change;
         // console.log(changeBox);
         change = [];
         num = 0;
@@ -358,8 +362,8 @@ var json =
                 u_id : 1,
                 token : '123123123' ,
                 toUser : 1 ,
-                // month: year + '-' + month
-                month:"2016-10"
+                month: year + '-' + month
+                // month:"2016-10"
             } ,
             success: function(data){
                 console.log(data);
@@ -443,10 +447,60 @@ var json =
 
                         $('#changeButtonBox').show(300);
 
+                        changeDate = year + '-' + month + '-' + thisIndex;
+
                     })
                 }
             }
         });
+    }
+
+    $('.updateBtn').bind('click',function(event){
+        event.stopPropagation();
+        event.preventDefault();
+
+        // console.log(123);
+        changeSignState(1,1,1,fanelState);
+    })
+
+    $('.updateCancel').bind('click',function(event){
+        event.stopPropagation();
+        event.preventDefault();
+
+        selectCancel();
+    })
+
+    function selectCancel (){
+        
+    }
+
+    function changeSignState(u_id , token , toUser , option){
+        // console.log(changeDate);
+        if(u_id != undefined && token != undefined && toUser != undefined && option != undefined){
+            if(confirm('确定改签该天状态吗？')){
+                $.ajax({
+                    type: 'POST',
+                    url: initObj.update , 
+                    // url: "http://192.168.1.135:8080/home/sign" , 
+                    data: {
+                        u_id : 1,
+                        token : '123123123' ,
+                        toUser : 1 ,
+                        // month: year + '-' + month
+                        option : option ,
+                        date : changeDate
+                    } ,
+                    success: function(data){
+                        console.log(data);
+
+                        if(data.code == 200){
+                            $('.selectTimeBtn').click();
+                        }
+                    }
+                });
+            }
+        }
+        
     }
 }
 
