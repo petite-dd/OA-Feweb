@@ -377,7 +377,7 @@ var json =
                             // console.log(signRecordState);
                             if(signRecordState.absenteeism){
                                 $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerEmpty">旷</div>');
-                                $('.signInStatusContentBoxStateInner').css({'line-height' : $('.signInStatusContentBoxState').height() - 3 + 'px'});
+                                
                             }
                             if(signRecordState.sign){   //-----签到
                                 $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerNormal">到</div>');
@@ -397,6 +397,7 @@ var json =
                             if(signRecordState.leaveFull){   //-----全天假
                                 $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerVocation">全</div>');
                             }
+                            $('.signInStatusContentBoxStateInner').css({'line-height' : $('.signInStatusContentBoxState').height() - 3 + 'px'});
                         }
                     }
                     $('.signBtnIn').bind('click',function(){
