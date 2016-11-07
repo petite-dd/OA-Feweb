@@ -1,7 +1,12 @@
 function init () {
-    // alert("ok");
+    changeButton[0].setAttribute("status","click");
+    changeButton[1].setAttribute("status","click");
+    changeButton[2].setAttribute("status","click");
+    changeButton[3].setAttribute("status","click");
+    changeButton[4].setAttribute("status","unclick");       
+    changeButton[5].setAttribute("status","click"); 
     changeButton[3].click();    
-    changeButton[3].click();    
+    changeButton[3].click();     
 }
 window.onload = function  (argument) {
 
