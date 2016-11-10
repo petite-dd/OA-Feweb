@@ -185,6 +185,9 @@
 						/*box-sizing: border-box;*/
 						/*line-height: 1.9;*/
 					}
+					.signInStatusContentBoxStateInnerVacation {
+						background-color: #f1c40f;
+					}
 				}
 			}
 		}
@@ -302,6 +305,87 @@
 		background-color: #e74c3c; 
 	}
 }
+
+.setVocationWrap {
+	padding: 5%;
+
+	.setVocationBtnTitle {
+		float: left;
+		line-height: 40px;
+	}
+	.setVocationBtnContent {
+		float: right;
+	}
+
+	.setVocationBtn {
+		width: 100px;
+		height: 40px;
+		border-radius: 5px;
+		border: 2px solid grey;
+		background-color: white;
+		font-weight: 700;
+		font-family: '微软雅黑';
+		color: grey;
+		cursor: pointer;
+	}
+
+}
+.setDayContentBtn {
+		width: 100px;
+		height: 40px;
+		border-radius: 5px;
+		border: 2px solid grey;
+		background-color: white;
+		font-weight: 700;
+		font-family: '微软雅黑';
+		color: grey;
+		float: right;
+		margin-right: 5%;
+		cursor: pointer;
+}
+
+.changeStateBorder {
+	background-color: #f1c40f;
+}
+.changeDayState {
+	background-color: #f1c40f;
+}
+.setDayVocationList {
+	/*padding: 20px 5%;*/
+	padding-bottom: 0;
+	font-family: '微软雅黑';
+
+	.setDayVocationWrap {
+		float: left;
+		/*border: 1px solid whitesmoke;*/
+		padding: 5px;
+		width: 13.9%;
+		box-sizing: border-box;
+		cursor: pointer;
+
+		.innerSetDay {
+			border: 1px solid grey;
+			width: 100%;
+			height: 100%;
+			border-radius: 3px;
+			display: flex;
+			justify-content: center;
+			text-align: justify;
+			align-items: center;
+		}
+	}
+}
+.setDayContent {
+	padding: 20px;
+	font-family: '微软雅黑';
+
+	.setDayContentTitle {
+		font-size: 1.1em;
+		color: red;
+		font-weight: 600;
+	}
+}
+
 
 @keyframes loading {
 	from {

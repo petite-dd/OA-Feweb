@@ -3,6 +3,7 @@ window.onload = function(){
 	var time = new Date();
 	createDateContent(time);
 	resizeDateBox();
+	getVacationObj();
 
 	 //-----获取按钮状态、当前用户本月信息
 	getOwnMonth();
@@ -15,6 +16,7 @@ window.onload = function(){
 		for(var i = 0 ; i < num ; i ++){
 			$('.signInStatusContent').prepend('<div class="signInStatusContentBox"><div class="signInStatusContentBoxInner"><div class="signInStatusContentBoxState"></div></div></div>');
 		}
+
 	}
 	function resizeDateBox(){  //-----重置日历格子的宽高及样式
 		var boxWidth = $('.signInStatusContentBox').width();
@@ -99,6 +101,32 @@ window.onload = function(){
 	    	}
 		});
 	}
+	function getVacationObj(){
+		var thisMonth = new Date();
+        $.ajax({
+        	type : 'POST',
+        	url : initObj.getVacation ,
+        	data : {
+				"u_id": 1 ,
+			    "token": "123123123" ,
+			    "date": (thisMonth.getYear() + 1900) + '-' + (thisMonth.getMonth() + 1)
+        	},
+        	success : function(data){
+        		console.log(data);
+
+        		loadingPage("disappear");
+
+        		if(data.code == 200){
+        			for(var i = 0 ; i < data.contents.date.length ; i ++){
+        				$('.innerDate').eq(data.contents.date[i] - 1).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerVacation">假</div>');
+        				// $('.innerDate').eq(data.contents.date[i] - 1).css({'background-color' : '#f1c40f'});
+        			}
+        		}else{
+
+        		}
+        	}
+        })
+	}
 	function getOwnMonth(){
 		$.ajax({
 	     	type: 'POST',
@@ -160,8 +188,13 @@ window.onload = function(){
 	    					if(signRecordState.notSignOut){  //-----未签退
 	    						$('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerEmpty">退</div>');
 	    					}
+                            // if(signRecordState.vacation){   //-----放假
+                            //     $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerVacation">假</div>');
+                            // }
 	    				}
 	    			}
+
+        			resizeDateBox();
 					$('.signBtnIn').bind('click',function(){
 						// console.log(1);
 						loadingPage('appear','操作执行中');

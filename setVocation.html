@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=0.8, user-scalable=0" name="viewport">
+	<link rel="stylesheet" type="text/css" href="./css/signIn.css">
+	<link rel="stylesheet" type="text/css" href="./css/depBox.css">
+	<script src="./deps/jquery.min.js"></script>
+	<script src="./js/init.js"></script>
+	<script src="./js/setVocation.js"></script>
+</head>
+<body>
+	<div class="loadingMask">
+		<div class="loadingMaskTop">
+			<div class="innerLoading">
+				
+			</div>
+			<div class="loadingMaskBot">
+				请稍等 ......
+			</div>
+		</div>
+	</div>
+	<div class="grey_whole"></div>
+	<div class="box_father"  onselectstart ='return false'>
+		<div class="box">
+			<div class="box_top">
+				<div class="box_title">假期情况</div>
+			</div>
+			<div class="selectMonthWrap">
+				<div class="selectYear selectMonthBtn">
+					<select class="innerSelectYear">
+						<option value="2000">2000</option>
+						<option value="2001">2001</option>
+						<option value="2002">2002</option>
+						<option value="2003">2003</option>
+						<option value="2004">2004</option>
+						<option value="2005">2005</option>
+						<option value="2006">2006</option>
+						<option value="2007">2007</option>
+						<option value="2008">2008</option>
+						<option value="2009">2009</option>
+						<option value="2010">2010</option>
+						<option value="2011">2011</option>
+						<option value="2012">2012</option>
+						<option value="2013">2013</option>
+						<option value="2014">2014</option>
+						<option value="2015">2015</option>
+						<option value="2016">2016</option>
+						<option value="2017">2017</option>
+						<option value="2018">2018</option>
+						<option value="2019">2019</option>
+						<option value="2020">2020</option>
+						<option value="2021">2021</option>
+						<option value="2022">2022</option>
+						<option value="2023">2023</option>
+						<option value="2024">2024</option>
+						<option value="2025">2025</option>
+					</select>
+				</div>
+				<div class="selectMonth selectMonthBtn">
+					<select class="innerSelectMonth">
+						<option value="01">一月</option>
+						<option value="02">二月</option>
+						<option value="03">三月</option>
+						<option value="04">四月</option>
+						<option value="05">五月</option>
+						<option value="06">六月</option>
+						<option value="07">七月</option>
+						<option value="08">八月</option>
+						<option value="09">九月</option>
+						<option value="10">十月</option>
+						<option value="11">十一月</option>
+						<option value="12">十二月</option>
+					</select>
+				</div>
+				<div class="selectTimeBtn" style="display: block;">
+					查询
+				</div>
+			</div>
+			<div class="box_bottom dateList">
+				<div class="signInStatusWrap">
+					<div class="signInStatusTitle">
+						<div class="signInStatusInner">SU</div>
+						<div class="signInStatusInner">MO</div>
+						<div class="signInStatusInner">TU</div>
+						<div class="signInStatusInner">WE</div>
+						<div class="signInStatusInner">TH</div>
+						<div class="signInStatusInner">FR</div>
+						<div class="signInStatusInner">SA</div>
+						<div class="clear"></div>
+					</div>
+					<div class="signInStatusContent">
+
+						<div class="clear">
+							
+						</div>
+					</div>
+					<div class="setVocationWrap">
+						<div class="setVocationBtnTitle">
+							点击日历，黄色为假期。
+						</div>
+						<div class="setVocationBtnContent">
+							<button class="setVocationBtn">保存</button>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="box_top">
+				<div class="box_title">每周休息</div>
+			</div>
+			<div class="box_bottom">
+				<div class="signInStatusWrap">
+					<div class="signInStatusTitle">
+						<div class="signInStatusInner">SU</div>
+						<div class="signInStatusInner">MO</div>
+						<div class="signInStatusInner">TU</div>
+						<div class="signInStatusInner">WE</div>
+						<div class="signInStatusInner">TH</div>
+						<div class="signInStatusInner">FR</div>
+						<div class="signInStatusInner">SA</div>
+						<div class="clear"></div>
+					</div>
+					<div class="setDayVocationList">
+						<div class="setDayVocationWrap"><div class="innerSetDay">7</div></div>
+						<div class="setDayVocationWrap"><div class="innerSetDay">1</div></div>
+						<div class="setDayVocationWrap"><div class="innerSetDay">2</div></div>
+						<div class="setDayVocationWrap"><div class="innerSetDay">3</div></div>
+						<div class="setDayVocationWrap"><div class="innerSetDay">4</div></div>
+						<div class="setDayVocationWrap"><div class="innerSetDay">5</div></div>
+						<div class="setDayVocationWrap"><div class="innerSetDay">6</div></div>
+						<div class="clear"></div>
+					</div>
+					<div class="setDayContent">
+					    <div class="setDayContentTitle">
+					    	特别注意：
+					    </div>
+					    <p>&nbsp;</p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;建议最先调整这张表，否则将会影响单独修改的假期，会覆盖和替换之前的数据。</p>
+					    <p>&nbsp;</p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;点击上面方框，变色的为休息时间。</p>
+					    <p>&nbsp;</p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如双休，就点击7（SU）和6（SA），在本栏目右下方点击保存。</p>
+					</div>
+					<button class="setDayContentBtn">
+						保存
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

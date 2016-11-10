@@ -4,5 +4,9 @@ var initObj = {
 	'sign' : domain + '/Home/Sign/sign',
 	'signOut' : domain + '/Home/Sign/signOut',
 	'getMonth' : domain + '/Home/Sign/getMonth',
-	'update' : domain + '/Home/Sign/update'
+	'update' : domain + '/Home/Sign/update',
+	'setAbsenteeism' : domain + '/Home/Sign/setAbsenteeism',
+	'setVacation' : domain + '/Home/set/setVacation',
+	'getVacation' : domain + '/Home/set/getVacation',
+	'setDateToVacation' : domain + '/Home/set/setDateToVacation'
 }	

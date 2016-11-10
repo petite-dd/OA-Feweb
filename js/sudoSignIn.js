@@ -1,4 +1,4 @@
-function init () {
+function initClick () {
     changeButton[0].setAttribute("status","click");
     changeButton[1].setAttribute("status","click");
     changeButton[2].setAttribute("status","click");
@@ -14,6 +14,7 @@ var num = 0;
 var change = []; //最终结果
 var fanelState = [];
 var changeDate = '';
+loadingPage("disappear");
 // var changeBox = ["签到","迟到","半天假","全天假","签退","旷工"];
 var changeBox = ["sign","late","leaveHalf","leaveFull","signOut","absenteeism"];
 var json1 = 
@@ -299,7 +300,7 @@ var json =
     });
 
     $('.selectTimeBtn').on('click',function(){
-
+        loadingPage("appear",'请稍等');
         searchMonth($('.innerSelectYear').val(),$('.innerSelectMonth').val());
     })
     $('.innerSelectYear,.innerSelectMonth').bind('change',function(){
@@ -381,17 +382,7 @@ var json =
                 allDateContent = data.contents.signRecord;
 
                 if(data.code == 200){
-                    if(data.contents.operable.length == 0){  //------获取按钮点击状态
-                        $('.signInBtn').attr('disabled','disabled').css('opacity','0.5');
-                    }else if(data.contents.operable.length > 0){
-                        if(data.contents.operable[0] == 'signIn'){
-                            $('.signBtnOff').attr('disabled','disabled').css('opacity','0.5');
-                            $('.signBtnIn').css({'opacity':'1' , 'cursor' : 'pointer'});
-                        }else if(data.contents.operable[0] == 'signOff'){
-                            $('.signBtnIn').attr('disabled','disabled').css('opacity','0.5');
-                            $('.signBtnOff').css({'opacity':'1' , 'cursor' : 'pointer'});
-                        }
-                    }
+                    loadingPage("disappear");
 
                     // loadingPage('disappear');  //-----隐藏加载框
 
@@ -428,19 +419,12 @@ var json =
                             if(signRecordState.leaveFull){   //-----全天假
                                 $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerVocation">全</div>');
                             }
+                            if(signRecordState.vacation){   //-----放假
+                                $('.innerDate').eq(i).children('.signInStatusContentBoxState').append('<div class="signInStatusContentBoxStateInner signInStatusContentBoxStateInnerVacation">假</div>');
+                            }
                             $('.signInStatusContentBoxStateInner').css({'line-height' : $('.signInStatusContentBoxState').height() - 3 + 'px'});
                         }
                     }
-                    $('.signBtnIn').bind('click',function(){
-                        // console.log(1);
-                        loadingPage('appear','操作执行中');
-                        signInObj(initObj.sign);
-                    })
-                    $('.signBtnOff').bind('click',function(){
-                        // console.log(0);
-                        loadingPage('appear','操作执行中');
-                        signInObj(initObj.signOut);
-                    })
                     $('.innerDate').bind('click',function(){
 
                         var str = $(this).text();
@@ -450,6 +434,9 @@ var json =
                         // console.log(str.match(reg));
                         var thisIndex = str.match(reg);
 
+                        if(thisIndex[0].length == 1){
+                            thisIndex[0] = '0' + thisIndex[0];
+                        }
                         $('.changeDateNum').html(thisIndex);
 
                         $('.innerDate').removeClass('changeDateActive');
@@ -460,6 +447,8 @@ var json =
                         changeDate = year + '-' + month + '-' + thisIndex;
 
                     })
+                }else{
+                    loadingPage("disappear");
                 }
             }
         });
@@ -470,6 +459,7 @@ var json =
         event.preventDefault();
 
         // console.log(123);
+
         changeSignState(1,1,1,fanelState);
     })
 
@@ -480,34 +470,83 @@ var json =
         selectCancel();
     })
 
+    function loadingPage(operation,content){
+        if(operation == 'appear'){
+            if(content){
+                $('.loadingMaskBot').html(content);
+            }
+            $('.loadingMask').css('display' , 'flex');
+            $('.loadingMask').animate({'opacity' : 1}, 300);
+        }else if(operation == 'disappear'){
+            $('.loadingMask').animate({'opacity' : 0}, 300 , function(){
+                $('.loadingMask').css('display' , 'none');
+            });
+        }
+    }
+
     function selectCancel (){
-        
+        initClick();
+        $('#changeButtonBox').hide(300);
     }
 
     function changeSignState(u_id , token , toUser , option){
         // console.log(changeDate);
         if(u_id != undefined && token != undefined && toUser != undefined && option != undefined){
             if(confirm('确定改签该天状态吗？')){
-                $.ajax({
-                    type: 'POST',
-                    url: initObj.update , 
-                    // url: "http://192.168.1.135:8080/home/sign" , 
-                    data: {
-                        u_id : 1,
-                        token : '123123123' ,
-                        toUser : 1 ,
-                        // month: year + '-' + month
-                        option : option ,
-                        date : changeDate
-                    } ,
-                    success: function(data){
-                        console.log(data);
+                loadingPage("appear",'请稍等');
+                if(option[0] == 'absenteeism'){
+                    $.ajax({
+                        type: 'POST',
+                        url: initObj.setAbsenteeism , 
+                        // url: "http://192.168.1.135:8080/home/sign" , 
+                        data: {
+                            u_id : 1,
+                            token : '123123123' ,
+                            toUser : 1 ,
+                            date : changeDate
+                        } ,
+                        success: function(data){
+                            console.log(data);
 
-                        if(data.code == 200){
-                            $('.selectTimeBtn').click();
+                            if(data.code == 200){
+                                $('.selectTimeBtn').click();
+                                selectCancel();
+                                loadingPage("disappear");
+                            }else{
+                                $('.selectTimeBtn').click();
+                                selectCancel();
+                                loadingPage("disappear");
+                            }
                         }
-                    }
-                });
+                    });
+                }else{
+                    $.ajax({
+                        type: 'POST',
+                        url: initObj.update , 
+                        // url: "http://192.168.1.135:8080/home/sign" , 
+                        data: {
+                            u_id : 1,
+                            token : '123123123' ,
+                            toUser : 1 ,
+                            // month: year + '-' + month
+                            option : option ,
+                            date : changeDate
+                        } ,
+                        success: function(data){
+                            console.log(data);
+
+                            if(data.code == 200){
+                                $('.selectTimeBtn').click();
+                                selectCancel();
+                                loadingPage("disappear");
+                            }else{
+                                $('.selectTimeBtn').click();
+                                selectCancel();
+                                loadingPage("disappear");
+                            }
+                        }
+                    });
+                }
             }
         }
         
