@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=0.8, user-scalable=0" name="viewport">
+	<link rel="stylesheet" type="text/css" href="css/depBox.css">
+	<title></title>
+</head>
+<body>
+	<div class="grey_whole"></div>
+	<div class="box_father">
+		<div class="box">
+			<div class="box_top">
+				<div class="box_title">基本信息</div>
+				<!-- <div class="change_ico" id="change_1"></div> -->
+				<!-- <div class="save_ico" id="save_1"></div> -->
+			</div>
+			<div class="box_bottom">
+				<div class="box_left_5" id="jsonList_2"></div>
+				<div class="box_right_5" id="jsonContent_2"></div>
+			</div>
+		</div>
+		<div class="box bordernone" id="second_box">
+			<div class="box box_marginnone" id="header_pic">
+				<div class="box_top">
+					<div class="box_title">头像</div>
+					<!-- <div class="change_ico"></div> -->
+				</div>
+				<div class="box_bottom">
+					<div id="people_pic"></div>
+				</div>
+			</div>
+			<div class="box_2 box_marginnone" id="zym">
+				<div class="box_top">
+					<div class="box_title">座右铭</div>
+					<!-- <div class="change_ico" id="change_3"></div> -->
+					<!-- <div class="save_ico" id="save_3"></div> -->
+				</div>
+				<div class="box_bottom">
+					<span id="jsonList_3"></span>
+					<div id="jsonContent_3">
+						<!-- <span class="span_3" >人生没有偶然，每件事都有它的意义</span><input type="text" class="input input_3"> -->
+					</div>
+				</div>
+			</div>
+
+			<div class="box box_marginnone" id="yhk">
+				<div class="box_top">
+					<div class="box_title">银行卡信息(不公开)</div>
+					<!-- <div class="change_ico" id="change_2"></div> -->
+					<!-- <div class="save_ico" id="save_2"></div> -->
+				</div>
+				<div class="box_bottom">
+					<div class="box_left_4" id="jsonList_1"></div>
+					<div class="box_right_6" id="jsonContent_1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<style type="text/css">
+
+
+.input_3{width: 99%!important;}
+#header_pic{width: 140px!important;
+	margin-top: 10px!important;
+	position: relative;
+	bottom: 10px;
+}
+#people_pic{width: 116px;
+	height: 116px;
+	border: 1px solid lightgrey;
+	margin:10px;
+	border-radius: 5px;
+	background-image: url(images/OA_tx.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+#zym{float: right;
+	height: 190px;
+}
+#jsonContent_3{margin: 10px;
+	position: relative;
+	top: 30px;
+	line-height: 1.5;
+	font-size: 2vh;
+}
+#second_box{background-color: transparent!important;}
+
+.jsonList_1{background-color: red;
+	height: 100%;
+	height: 20px;
+	margin-bottom: 10px;
+}
+.borderDivLeft:nth-child(2n){background-color: rgba(241,241,241,0.21);
+	border-right: 20px solid rgba(241,241,241,0.21);
+	border-radius: 0 10px 10px 0;
+}
+.borderDivLeft{border-right: 20px solid transparent;
+}
+.borderDivRight:nth-child(2n){background-color: rgba(241,241,241,0.21);
+	border-left: 20px solid rgba(241,241,241,0.21);
+	border-radius: 10px 0 0 10px;
+}
+.borderDivRight{border-left: 20px solid transparent;
+}
+</style>
+<script type="text/javascript">
+var json_1 = { "data" : [
+	{
+		"name" : "开户行",
+		"value" : "中国工商银行塔山路支行"
+	},{
+		"name" : "银行卡号",
+		"value" : "6212262********3245"
+	},{
+		"name" : "开户人姓名",
+		"value" : "王一帆"
+	},{
+		"name" : "支付宝",
+		"value" : "18685356570"
+	}
+]};
+var json_2 = { "data" : [
+	{
+		"name" : "姓名",
+		"value" : "王一帆"
+	},{
+		"name" : "性别",
+		"value" : "男"
+	},{
+		"name" : "手机",
+		"value" : "18685356570"
+	},{
+		"name" : "密码",
+		"value" : "18685356570"
+	},{
+		"name" : "微信",
+		"value" : "petite-dd"
+	},{
+		"name" : "邮箱",
+		"value" : "dd@ning-z.com"
+	},{
+		"name" : "生日",
+		"value" : "1993-10-9"
+	},{
+		"name" : "出生地",
+		"value" : "贵州安顺"
+	},{
+		"name" : "teambeation",
+		"value" : "550444405@qq.com"
+	},{
+		"name" : "入职时间",
+		"value" : "2016-6-7"
+	},{
+		"name" : "职务",
+		"value" : "CEO"
+	},{
+		"name" : "身份",
+		"value" : "股东"
+	}
+]};
+var json_3 = { "data" : [
+	{
+		"name" : "",
+		"value" : "人生没有偶然，每件事都有它的意义"
+	}
+]};
+
+// create 函数说明
+// json ------------ 调用的数据
+// listId ---------- 显示 data.name 的父级ID
+// contentId ------- 显示 data.value 的父级ID
+// Idnum ----------- 修改按钮ID的数字
+
+function create (json,listId,contentId,Idnum) {
+	listId.innerHTML = "";
+	contentId.innerHTML = "";
+	for (var i = 0; i < json.data.length; i++) {
+		var createJsonList = document.createElement("div");
+		createJsonList.innerText = json.data[i].name;
+		createJsonList.setAttribute("class","borderDivLeft");
+		listId.appendChild(createJsonList);
+
+		var createContent = document.createElement("div");
+		var createspan = document.createElement("span");
+		var createinput = document.createElement("input");
+		// createContent.innerText = json.data[i].value;
+		createContent.setAttribute("class","borderDivRight");
+		contentId.appendChild(createContent);
+
+		createspan.setAttribute("class","span_" + Idnum);
+		createspan.innerText = json.data[i].value;
+		createContent.appendChild(createspan);
+
+		createinput.setAttribute("class","input input_" + Idnum);
+		createContent.appendChild(createinput);
+	};
+};
+create(json_1,jsonList_1,jsonContent_1,2);
+create(json_2,jsonList_2,jsonContent_2,1);
+create(json_3,jsonList_3,jsonContent_3,3);
+
+// setTimeout(function () {
+	zym.style.width = second_box.clientWidth - 150 + "px";
+// },1)
+window.onresize = function () {
+	zym.style.width = second_box.clientWidth - 150 + "px";
+}
+
+
+
+	
+change_1.onclick = function () {
+	TextChangeInput("change_1","save_1","span_1","input_1");
+}
+change_2.onclick = function () {
+	TextChangeInput("change_2","save_2","span_2","input_2");
+}
+change_3.onclick = function () {
+	TextChangeInput("change_3","save_3","span_3","input_3");
+}
+
+save_2.onclick = function () {
+	TextSaveInput(json_1,change_2,save_2,"input_2")
+	create(json_1,jsonList_1,jsonContent_1,2);   //调用接口成功以后再使用这句让前端显示
+}
+save_1.onclick = function () {
+	TextSaveInput(json_2,change_1,save_1,"input_1")
+	create(json_2,jsonList_2,jsonContent_2,1);  //调用接口成功以后再使用这句让前端显示
+}
+save_3.onclick = function () {
+	TextSaveInput(json_3,change_3,save_3,"input_3")
+	create(json_3,jsonList_3,jsonContent_3,3);	//调用接口成功以后再使用这句让前端显示
+}
+
+
+
+// 文字保存
+function TextSaveInput (json,change_Id,save_Id,input_Id) {
+	var input_class = document.getElementsByClassName(input_Id);
+	for (var i = 0; i < input_class.length; i++) {
+		json.data[i].value = input_class[i].value;
+	};
+	change_Id.style.display = "block";
+	save_Id.style.display = "none";	
+	console.log(json);    						//最终结果的json
+	// create(json,jsonList_3,jsonContent_3,3);	
+}
+
+
+// 文字改变
+function TextChangeInput (Change_icoId,Save_icoId,TextClass,InputClass) {
+	var InputClass_1 = document.getElementsByClassName(InputClass);
+	var TextClass_1 = document.getElementsByClassName(TextClass);
+		for (var i = 0; i < TextClass_1.length; i++) {
+			TextClass_1[i].style.display = "none";
+			InputClass_1[i].value = TextClass_1[i].innerText;
+			InputClass_1[i].style.display = "block";
+		};
+	document.getElementById(Change_icoId).style.display = "none";
+	document.getElementById(Save_icoId).style.display = "block";
+}
+
+</script>
+</html>

@@ -150,6 +150,7 @@ body{margin: 0;
 	cursor: pointer;
 	transition:0.2s;
 	letter-spacing: 2px;
+	/*min-height: 30px;*/
 }
 .child{width: 123px;
 	/*height: 25px;*/
@@ -167,6 +168,7 @@ body{margin: 0;
 	border-style:dashed; 
 	cursor: pointer;
 	letter-spacing: 1px;
+	/*min-height: 30px;*/
 
 }
 .child:before{content:"■";

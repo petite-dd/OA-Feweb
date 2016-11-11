@@ -131,16 +131,20 @@ body{font-family: '微软雅黑';}
 	float: right;
 }
 .box_left_3 div,.box_left_4 div,.box_left_5 div,.box_left_6 div,.box_left_7 div{
+	height: 4vh;
+	min-height: 25px;
 	text-align: right;
-	margin-right: 40px;
-	line-height: 25px;
+	margin-right: 20px;
+	line-height: 2;
 	font-size: 2vh;
 	overflow: hidden;
 }
 .box_right_3 div,.box_right_4 div,.box_right_5 div,.box_right_6 div,.box_right_7 div{
+	height: 4vh;
+	min-height: 25px;
 	text-align: left;
-	margin-left: 40px;
-	line-height: 25px;
+	margin-left: 20px;
+	line-height: 2;
 	font-size: 2vh;
 	overflow: hidden;
 }
@@ -157,4 +161,10 @@ body{font-family: '微软雅黑';}
 	margin-bottom: 4px;
 	width: 80%;
 	text-align: center;
+	position: relative;
+	top: 2px;
+	/*line-height: 1.5*/
+}
+.box_width_100{width: 100%!important;
+	margin-top: 10px!important;
 }

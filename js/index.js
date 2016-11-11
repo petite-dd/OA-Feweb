@@ -27,7 +27,7 @@ var json =
     	"father_id":"1",
     	"sid":"4",
     	"name":"个人信息",
-    	"url":"first.html"
+    	"url":"person.html"
     },
     {
     	"father_id":"1",
