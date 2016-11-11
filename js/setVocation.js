@@ -46,7 +46,7 @@ window.onload = function  (argument) {
 
         		if(data.code == 200){
         			for(var i = 0 ; i < data.contents.date.length ; i ++){
-        				$('.innerDate').eq(data.contents.date[i] - 1).css({'background-color' : '#f1c40f'});
+        				$('.innerDate').eq(data.contents.date[i] - 1).addClass('changeStateBorder');
         			}
         		}else{
 
@@ -107,13 +107,14 @@ window.onload = function  (argument) {
 
     $('.setVocationBtn').on('click',function(){ //-----左侧保存按钮被点击
     	if(confirm('是否保存设置？')){
-    		alert('设置成功');
     		// console.log(changeObj);
-    		// var returnObj = {
-    		// 	contents : changeObj
-    		// }
-    		// console.log(returnObj);
-
+    		loadingPage("appear","请稍等...");
+    		var returnObj = {
+				"u_id": 1 ,
+			    "token": "123123123" ,
+			    "contents": changeObj
+    		}
+    		console.log(returnObj);
     		$.ajax({
     			type : 'POST' ,
     			url : initObj.setDateToVacation , 
@@ -124,6 +125,11 @@ window.onload = function  (argument) {
     			},
     			success : function(data){
     				console.log(data);
+    				loadingPage("disappear");
+    				if(data.code == 200){
+    					alert('设置成功');
+    					$('.selectTimeBtn').click();
+    				}
     				
     			}
     		})
@@ -176,42 +182,49 @@ window.onload = function  (argument) {
     })
 
     var allDateContent = {};
+    var setYear = '';
+    var setMonth = '';
     function getOwnMonth(year,month){
     	console.log(year + ',' + month);
-        $('.innerDate').bind('click',function(){
-
-            var str = $(this).text();
-
-            var reg = /[0-9]+$/;
-
-            // console.log(str.match(reg));
-            var thisIndex = str.match(reg);
-
-            if(thisIndex[0].length == 1){
-            	thisIndex[0] = '0' + thisIndex[0];
-            }
-
-            $('.changeDateNum').html(thisIndex);
-
-
-            changeDate = year + '-' + month + '-' + thisIndex;
-            setTimeArr[0] = year;
-            setTimeArr[1] = month;
-            setTimeArr[2] = thisIndex;
-
-            console.log(changeDate);
-
-            if($(this).hasClass('changeStateBorder')){
-            	$(this).removeClass('changeStateBorder');
-            	changeObj[changeDate] = 'work';
-            }else{
-            	$(this).addClass('changeStateBorder');
-            	changeObj[changeDate] = 'vocation';
-            }
-
-
-        })
+    	setYear = year;
+    	setMonth = month;
     }
+    
+    	
+    // });
+    // $('.innerDate').on('click',function(){
+    $(document).delegate('.innerDate', 'click', function(event) {
+
+        var str = $(this).text();
+
+        var reg = /[0-9]+$/;
+
+        // console.log(str.match(reg));
+        var thisIndex = str.match(reg);
+
+        if(thisIndex[0].length == 1){
+        	thisIndex[0] = '0' + thisIndex[0];
+        }
+
+        $('.changeDateNum').html(thisIndex);
+
+
+        changeDate = setYear + '-' + setMonth + '-' + thisIndex;
+        setTimeArr[0] = setYear;
+        setTimeArr[1] = setMonth;
+        setTimeArr[2] = thisIndex;
+
+        console.log(changeDate);
+
+        if($(this).hasClass('changeStateBorder')){
+        	$(this).removeClass('changeStateBorder');
+        	changeObj[changeDate] = 'work';
+        }else{
+        	$(this).addClass('changeStateBorder');
+        	changeObj[changeDate] = 'vacation';
+        }
+
+    })
 
 
 
