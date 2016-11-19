@@ -1,0 +1,103 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.clear {
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.accountListWrap {
+  position: relative;
+  width: 95%;
+  /*height: 500px;*/
+  border: 1px solid lightgrey;
+  /*margin-top: 15px;*/
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 15px 0;
+  margin-left: 2.5%;
+}
+.accountListWrap .accountListHead {
+  width: 100%;
+}
+.accountListWrap .accountListHead .accountListHeadInner {
+  float: left;
+  width: 25%;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  border: 0.5px solid lightgrey;
+  box-sizing: border-box;
+}
+.accountListWrap .accountListBody {
+  width: 100%;
+  position: relative;
+}
+.accountListWrap .accountListBody .accountListContent {
+  position: relative;
+  height: 35px;
+}
+.accountListWrap .accountListBody .accountListContent:nth-child(2n) .accountListContentLeft {
+  background-color: white;
+}
+.accountListWrap .accountListBody .accountListContent:nth-child(2n-1) .accountListContentLeft {
+  background-color: #DDD;
+}
+.accountListWrap .accountListBody .accountListContent .accountListContentLeft {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  background-color: white;
+  cursor: pointer;
+  /*transition: 0.5s all;*/
+}
+.accountListWrap .accountListBody .accountListContent .accountListContentLeft .accountLeftInner {
+  float: left;
+  width: 25%;
+  text-align: center;
+  height: 35px;
+  line-height: 35px;
+  border: 0.25px solid lightgrey;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+.accountListWrap .accountListBody .accountListContent .accountListContentRight {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  height: 35px;
+  z-index: 0;
+  background-color: white;
+}
+.accountListWrap .accountListBody .accountListContent .accountListContentRight .innerAccountRight {
+  float: right;
+  height: 35px;
+  width: 12.5%;
+  line-height: 35px;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  font-size: 2vh;
+  /*background-color: green;*/
+}
+.accountListWrap .accountListBody .accountListContent .accountListContentRight .innerAccountRightChange {
+  background-color: #1abc9c;
+}
+.accountListWrap .accountListBody .accountListContent .accountListContentRight .innerAccountRightDelete {
+  background-color: #e74c3c;
+}
+.accountListWrap .accountListHeadInner:nth-child(1), .accountListWrap .accountLeftInner:nth-child(1) {
+  width: 20% !important;
+}
+.accountListWrap .accountListHeadInner:nth-child(3), .accountListWrap .accountLeftInner:nth-child(3) {
+  width: 15% !important;
+}
+.accountListWrap .accountListHeadInner:nth-child(4), .accountListWrap .accountLeftInner:nth-child(4) {
+  width: 40% !important;
+}
