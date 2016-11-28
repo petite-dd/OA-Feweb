@@ -8,5 +8,7 @@ var initObj = {
 	'setAbsenteeism' : domain + '/Home/Sign/setAbsenteeism',
 	'setVacation' : domain + '/Home/set/setVacation',
 	'getVacation' : domain + '/Home/set/getVacation',
-	'setDateToVacation' : domain + '/Home/set/setDateToVacation'
+	'setDateToVacation' : domain + '/Home/set/setDateToVacation',
+	'addNewMember' : domain + '/Home/set/addNewMember',
+	'getAllMemberEasyInfo' : domain + '/Home/set/getMemberEasyInfo'
 }	

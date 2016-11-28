@@ -1,27 +1,35 @@
 window.onload = function(){
+
+	$.cxCalendar.defaults.startDate = 1980; 
+	$.cxCalendar.defaults.language = {
+	  monthList: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+	  weekList: ['Sun', 'Mon', 'Tur', 'Wed', 'Thu', 'Fri', 'Sat']
+	};
+
+	$('#addEntertime').cxCalendar();
+
+	
+
+	getAllMemberEasyInfo();
+
 	// alert();
-	createAccountList(accountData);  //-----调用生成人员列表函数
+	// createAccountList(accountData);  //-----调用生成人员列表函数
 
 	function createAccountList (json){  //-----生成人员列表函数
 		if(json){
 			for(var i = 0 ; i < json.length ; i ++){
-				$('.accountListWrap table tbody').append('<tr class="accountListTr"><td>' + (i + 1) + '</td><td>' + json[i].name + '</td><td>' + json[i].sex + '</td><td>' + json[i].tel + '</td></tr>');
+				$('.accountListBody').append('<div class="accountListContent"><div class="accountListContentLeft"><div class="accountLeftInner">' + (i + 1) + '</div><div class="accountLeftInner">' + json[i].name + '</div><div class="accountLeftInner accountLeftInnerSex">' + json[i].sex + '</div><div class="accountLeftInner">' + json[i].tel + '</div><div class="accountLeftInnerUId" style="display: none;">' + json[i].u_id + '</div><div class="clear"></div></div><div class="accountListContentRight"><div class="innerAccountRight innerAccountRightDelete">删除</div><div class="innerAccountRight innerAccountRightChange">修改</div></div></div>');
+			}
+			$('.accountListBody').append('<div class="clear"></div>');
+			for(var n = 0 ; n < $('.accountLeftInnerSex').length ; n ++){
+				if($('.accountLeftInnerSex').eq(n).text() == 'male'){
+					$('.accountLeftInnerSex').eq(n).text('男');
+				}else{
+					$('.accountLeftInnerSex').eq(n).text('女');
+				}
 			}
 		}
 	}
-	// $('.accountListContentLeft').swipe({  //-----手指滑动时间
-	// 	swipe:function(event, direction, distance, duration, fingerCount) {//-----事件，方向，距离（像素为单位），时间，手指数量
-	//         console.log(distance);
-	//         if(direction == "left"){   //-----左滑
-	//             console.log('left');
-	//             $(this).css('left' , '-=' + distance + 'px');
-	//         }
-	//         else if(direction == "right"){   //-----右滑
-	//             console.log('right');
-	//             $(this).css('left' , '+=' + distance + 'px');
-	//         }
- //    	}
-	// })
 	$(document).delegate('.accountListContentLeft', 'touchstart', function(event) {  //-----手指接触（移动端）
 		var event = event || window.event;
 		var disX = event.clientX - $(this).offset().left;
@@ -85,4 +93,94 @@ window.onload = function(){
 		event.preventDefault();
 		console.log('修改');
     })
+
+    $('.addNewBtn').on('click',function(){  //-----添加成员按钮被点击
+    	$('.addNewWrapAll').show(300).css('display' , 'flex');
+    })
+
+    $('.addNewBtnCancel').on('click',function(){  //-----添加成员窗口取消被点击
+    	$('.addNewWrapAll').hide(300);
+    })
+
+    $('.addNewBtnAdd').on('click',function(){  //----- 添加成员接口
+    	var ifEmpty = false;
+    	for(var i = 0 ; i < $('.addNewInputWrap').length ; i ++){
+    		if($('.addNewInputWrap').eq(i).children('.addNewInput').val() == ""){
+    			ifEmpty = true;
+    		}
+    	}
+    	if(ifEmpty == false){
+    		loadingPage('appear');
+	        $.ajax({
+	        	type : 'POST',
+	        	url : initObj.addNewMember ,
+	        	data : {
+				    "u_id" : 1,
+				    "token" : "123123123",
+				    "userType" : "user",   
+
+				    "enterTime" : $('#addEntertime').val(),
+				    "name" : $('#addName').val(),
+				    "position" : $('#addPosition').val(),
+				    "status" : $('#addStatus').val(),
+				    "tel" : $('#addTel').val(),
+				    "username" : $('#addUsername').val(),
+				    "password" : $('#addPassword').val()
+	        	},
+	        	success : function(data){
+	        		console.log(data);
+
+	        		loadingPage("disappear");
+
+	        		if(data.code == 200){
+	        			alert('添加成功');
+
+				    	for(var i = 0 ; i < $('.addNewInputWrap').length ; i ++){
+				    		$('.addNewInputWrap').eq(i).children('.addNewInput').val('');
+				    	}
+	        		}else{
+	        			alert(data.message);
+	        		}
+	        		$('.addNewWrapAll').hide(300);
+	        	}
+	        })
+    	}
+    })
+
+    function getAllMemberEasyInfo(){  //-----获取所有员工基本信息
+    	loadingPage('appear');
+        $.ajax({
+        	type : 'POST',
+        	url : initObj.getAllMemberEasyInfo ,
+        	data : {
+			    "u_id" : 1,
+			    "token" : "123123123"
+        	},
+        	success : function(data){
+        		console.log(data);
+
+
+        		if(data.code == 200){
+        			loadingPage("disappear");
+        			createAccountList(data.contents);
+        		}else{
+        			// alert(data.message);
+        		}
+        	}
+        })
+    }
+
+    function loadingPage(operation,content){
+        if(operation == 'appear'){
+            if(content){
+                $('.loadingMaskBot').html(content);
+            }
+            $('.loadingMask').css('display' , 'flex');
+            $('.loadingMask').animate({'opacity' : 1}, 300);
+        }else if(operation == 'disappear'){
+            $('.loadingMask').animate({'opacity' : 0}, 300 , function(){
+                $('.loadingMask').css('display' , 'none');
+            });
+        }
+    }
 }

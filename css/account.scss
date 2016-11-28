@@ -108,3 +108,174 @@
 	}
 
 }
+.addNewBtn {
+	/*width: 100px;*/
+	/*padding: 0 5px;*/
+	float: right;
+	height: 30px;
+	background-color: lightgrey;
+	margin-right: 10px;
+	border-radius: 8px;
+	border: 0;
+	outline: none;
+	cursor: pointer;
+
+	
+	.addIcon {
+		width: 30px;
+		height: 30px;
+		font-size: 30px;
+		text-align: center;
+		line-height: 25px;
+		display: block;
+		font-family: '微软雅黑';
+	}
+}
+
+.loadingMask {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	top: 0;
+	left: 0;
+	z-index: 1000;
+
+	display: flex;
+	align-items: center;
+	text-align: justify;
+	justify-content: center;
+
+	.loadingMaskTop {
+		width: 200px;
+		height: 250px;
+		position: relative;
+		/*background-color: white;*/
+
+		.innerLoading {
+			width: 100px;
+			height: 100px;
+			margin: 50px;
+			border-radius: 50%;
+			background: linear-gradient(transparent 0% , transparent 70% , #FFF 70% , #FFF 100%);
+			-webkit-animation: loading 0.6s linear 0s infinite;
+			-moz-animation: loading 0.6s linear 0s infinite;
+			-ms-animation: loading 0.6s linear 0s infinite;
+			-o-animation: loading 0.6s linear 0s infinite;
+			animation: loading 0.6s linear 0s infinite;
+
+		}
+		.loadingMaskBot {
+			width: 200px;
+			height: 50px;
+			text-align: center;
+			color: white;
+			font-family: '微软雅黑';
+		}
+	}
+}
+.addNewWrapAll {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,0.9);
+	z-index: 10000;
+	display: flex;
+	align-items: center;
+	text-align: justify;
+	justify-content: center;
+	display: none;
+
+	.addNewWrap {
+		width: 300px;
+		/*height: 500px;*/
+		border: 2px solid lightgrey;
+		border-radius: 8px;
+		position: relative;
+		overflow: hidden;
+
+		.addNewInputWrap {
+			width: 100%;
+			height: 40px;
+			display: flex;
+			align-items: center;
+			text-align: justify;
+			justify-content: center;
+			margin: 20px 0;
+
+			.addNewInput {
+				width: 80%;
+				height: 30px;
+				border-radius: 8px;
+				overflow: hidden;
+				border: 1px solid grey;
+				padding: 0 20px;
+				box-sizing: border-box;
+				outline: none;
+			}
+		}
+		.addNewBtnWrap {
+			width: 100%;
+			height: 40px;
+			margin-top: 20px;
+
+			button {
+				width: 50%;
+				height: 40px;
+				border: 0;
+				float: left;
+				color: white;
+				font-size: 18px;
+				font-family: '微软雅黑';
+				cursor: pointer;
+			}
+			.addNewBtnAdd{
+				background-color: #2ecc71;
+			}
+			.addNewBtnCancel{
+				background-color: #e74c3c;
+			}
+		}
+	}
+}
+
+@keyframes loading {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes loading {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes loading {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+@-o-keyframes loading {
+	from {
+		-o-transform: rotate(0deg);
+	}
+	to {
+		-o-transform: rotate(360deg);
+	}
+}
+@-ms-keyframes loading {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+	}
+}

@@ -5,17 +5,63 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=0.8, user-scalable=0" name="viewport">
 	<link rel="stylesheet" type="text/css" href="css/depBox.css">
 	<link rel="stylesheet" type="text/css" href="css/account.css">
+	<link rel="stylesheet" type="text/css" href="deps/jquery.cxcalendar.css">
+	<script src='./js/init.js'></script>
 	<script src='./deps/jquery.min.js'></script>
+	<script src='./deps/jquery.cxcalendar.min.js'></script>
 	<script src='./deps/jquery.touchSwipe.min.js'></script>
 	<script src='./js/testData/accountData.js'></script>
 	<title></title>
 </head>
 <body onselectstart ='return false'>
+	<div class="loadingMask">
+		<div class="loadingMaskTop">
+			<div class="innerLoading">
+				
+			</div>
+			<div class="loadingMaskBot">
+				请稍等 ......
+			</div>
+		</div>
+	</div>
+	<div class="addNewWrapAll">
+		<div class="addNewWrap">
+			<div class="addNewInputWrap">
+				<input type="text" class="addNewInput" placeholder="姓名" id="addName">
+			</div>
+			<div class="addNewInputWrap">
+				<input type="text" class="addNewInput" placeholder="电话" id="addTel">
+			</div>
+			<div class="addNewInputWrap">
+				<input type="text" class="addNewInput" placeholder="用户名" id="addUsername">
+			</div>
+			<div class="addNewInputWrap">
+				<input type="password" class="addNewInput" placeholder="密码" id="addPassword">
+			</div>
+			<div class="addNewInputWrap">
+				<input type="text" class="addNewInput" placeholder="职位" id="addPosition">
+			</div>
+			<div class="addNewInputWrap">
+				<input type="text" class="addNewInput" placeholder="身份" id="addStatus">
+			</div>
+			<div class="addNewInputWrap">
+				<input type="text" id="addEntertime" class="addNewInput" placeholder="加入时间" readonly="readonly">
+			</div>
+
+			<div class="addNewBtnWrap">
+				<button class="addNewBtnAdd">添加</button>
+				<button class="addNewBtnCancel">取消</button>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
 	<div class="grey_whole"></div>
 	<div class="box_father" onselectstart ='return false'>
 		<div class="box" onselectstart ='return false'>
 			<div class="box_top" onselectstart ='return false'>
 				<div class="box_title" >公司成员</div>
+				<button class="addNewBtn"><span class="addIcon">+</span></button>
+				<div class="clear"></div>
 			</div>
 			<div class="accountListWrap" onselectstart ='return false'>
 				<div class="accountListHead" onselectstart ='return false'>
@@ -34,82 +80,7 @@
 					<div class="clear"></div>
 				</div>
 				<div class="accountListBody" onselectstart ='return false'>
-					<div class="accountListContent">
-						<div class="accountListContentLeft">
-							<div class="accountLeftInner">
-								01
-							</div>
-							<div class="accountLeftInner">
-								王一帆
-							</div>
-							<div class="accountLeftInner">
-								男
-							</div>
-							<div class="accountLeftInner">
-								12345678901
-							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="accountListContentRight">
-							<div class="innerAccountRight innerAccountRightDelete">
-								删除
-							</div>
-							<div class="innerAccountRight innerAccountRightChange">
-								修改
-							</div>
-						</div>
-					</div>
-					<div class="accountListContent">
-						<div class="accountListContentLeft">
-							<div class="accountLeftInner">
-								01
-							</div>
-							<div class="accountLeftInner">
-								王一帆
-							</div>
-							<div class="accountLeftInner">
-								男
-							</div>
-							<div class="accountLeftInner">
-								12345678901
-							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="accountListContentRight">
-							<div class="innerAccountRight innerAccountRightDelete">
-								删除
-							</div>
-							<div class="innerAccountRight innerAccountRightChange">
-								修改
-							</div>
-						</div>
-					</div>
-					<div class="accountListContent">
-						<div class="accountListContentLeft">
-							<div class="accountLeftInner">
-								01
-							</div>
-							<div class="accountLeftInner">
-								王一帆
-							</div>
-							<div class="accountLeftInner">
-								男
-							</div>
-							<div class="accountLeftInner">
-								12345678901
-							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="accountListContentRight">
-							<div class="innerAccountRight innerAccountRightDelete">
-								删除
-							</div>
-							<div class="innerAccountRight innerAccountRightChange">
-								修改
-							</div>
-						</div>
-					</div>
-					<div class="clear"></div>
+					
 				</div>
 			</div>
 		</div>
@@ -265,9 +236,6 @@ var json_2 = { "data" : [
 	},{
 		"name" : "出生地",
 		"value" : "贵州安顺"
-	},{
-		"name" : "teambeation",
-		"value" : "550444405@qq.com"
 	},{
 		"name" : "入职时间",
 		"value" : "2016-6-7"
